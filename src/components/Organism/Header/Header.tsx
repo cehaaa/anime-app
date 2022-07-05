@@ -66,17 +66,6 @@ const Header: React.FC<HeaderProps> = () => {
 								value={collectionTitle}
 								handleInputChange={e => setCollectionTitle(e.target.value)}
 							/>
-
-							<div>{collectionTitle}</div>
-
-							{/* <TextField
-								label='Description'
-								name='description'
-								placeholder='Description'
-								value={collectionTitle}
-								handleInputChange={e => setCollectionTitle(e.target.value)}
-							/> */}
-
 							<Button.Basic size='sm'>Create</Button.Basic>
 						</Modal.Body>
 					</Modal.Container>

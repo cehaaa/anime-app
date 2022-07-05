@@ -20,9 +20,6 @@ import Anime from "../../models/Anime";
 // components
 import Body from "../../components/Organism/Body/Body";
 import Card from "../../components/Organism/Card/Card";
-import Button from "../../components/Atom/Button/Button";
-import Modal from "../../components/Organism/Modal/Modal";
-import TextField from "../../components/Atom/TextField/TextField";
 
 const Home: React.FC<HomeProps> = () => {
 	const { loading, data } = useQuery(GET_ANIMES);
