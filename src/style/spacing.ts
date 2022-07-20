@@ -1,6 +1,6 @@
-import KeyString from "../types/KeyString";
+import Spacing from "../types/Spacing";
 
-export const spacing: KeyString = {
+export const spacing: Spacing = {
 	1: "0.25rem",
 	2: ".5rem",
 	3: ".75rem",

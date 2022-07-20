@@ -1,7 +1,9 @@
 import sizes from "./font/size";
 import weights from "./font/weight";
 
-export const font = {
+import Font from "../types/Font";
+
+export const font: Font = {
 	size: sizes,
 	weight: weights,
 };

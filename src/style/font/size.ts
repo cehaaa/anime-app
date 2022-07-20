@@ -1,6 +1,6 @@
-import KeyString from "../../types/KeyString";
+import FontSize from "../../types/FontSize";
 
-export const sizes: KeyString = {
+export const sizes: FontSize = {
 	xs: ".75rem",
 	sm: ".875rem",
 	base: "1rem",

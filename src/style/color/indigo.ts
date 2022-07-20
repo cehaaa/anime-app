@@ -1,6 +1,6 @@
-import KeyString from "../../types/KeyString";
+import Color from "../../types/Color";
 
-export const indigo: KeyString = {
+export const indigo: Partial<Color> = {
 	500: "#8b5cf6",
 	600: "#7c3aed",
 };

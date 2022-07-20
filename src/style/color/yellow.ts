@@ -1,6 +1,6 @@
-import KeyString from "../../types/KeyString";
+import Color from "../../types/Color";
 
-export const yellow: KeyString = {
+export const yellow: Partial<Color> = {
 	50: "#fefce8",
 	100: "#fef9c3",
 	200: "#fef08a",

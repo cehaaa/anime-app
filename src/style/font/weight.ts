@@ -1,6 +1,6 @@
-import KeyString from "../../types/KeyString";
+import FontWeight from "../../types/FontWeight";
 
-export const weights: KeyString = {
+export const weights: FontWeight = {
 	thin: "100",
 	hairline: "200",
 	light: "300",
