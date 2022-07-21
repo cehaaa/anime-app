@@ -10,7 +10,7 @@ import variable from "./../../../../style/variable";
 
 export const CardTitle: React.FC<CardTitleProps> = ({ title }) => {
 	const Title = styled.div`
-		font-size: ${variable.font.size.md};
+		font-size: ${variable.font.size.base};
 		font-weight: ${variable.font.weight.semibold};
 	`;
 

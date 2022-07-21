@@ -14,19 +14,19 @@ export const CardBase: React.FC<CardBaseProps> = ({ children, anime }) => {
 	const BaseContainer = styled.div`
 		position: relative;
 		cursor: pointer;
-		background: ${variable.color.gray[500]};
+		background: ${variable.color.gray![500]};
 		border-radius: ${variable.radius.md};
 	`;
 
 	const BaseBodyRating = styled.div`
-		color: ${variable.color.green[500]};
+		color: ${variable.color.green![500]};
 		font-weight: ${variable.font.weight.bold};
 		margin-left: ${variable.spacing[2]};
 	`;
 
 	const BaseHoverContainer = styled.div`
 		position: absolute;
-		background: ${variable.color.gray[200]};
+		background: ${variable.color.gray![200]};
 		z-index: 1;
 		width: 260px;
 		height: 320px;
@@ -60,7 +60,7 @@ export const CardBase: React.FC<CardBaseProps> = ({ children, anime }) => {
 
 	const AddToCollectionButton = styled.button`
 		padding: ${variable.spacing[2]} ${variable.spacing[3]};
-		background: ${variable.color.green[500]};
+		background: ${variable.color.green![500]};
 		position: absolute;
 		bottom: 0;
 		right: 0;
@@ -72,20 +72,20 @@ export const CardBase: React.FC<CardBaseProps> = ({ children, anime }) => {
 		border-radius: ${variable.radius.rounded};
 
 		&:hover {
-			background: ${variable.color.green[600]};
+			background: ${variable.color.green![600]};
 		}
 	`;
 
 	const BaseHoverBody = styled.div`
 		padding: ${variable.spacing[4]};
-		color: ${variable.color.gray[900]};
+		color: ${variable.color.gray![900]};
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 	`;
 
 	const BaseHoverTitle = styled.div`
-		font-size: ${variable.font.size.md};
+		font-size: ${variable.font.size.base};
 		font-weight: ${variable.font.weight.semibold};
 		margin-bottom: ${variable.spacing[2]};
 
@@ -113,7 +113,7 @@ export const CardBase: React.FC<CardBaseProps> = ({ children, anime }) => {
 
 	const Genre = styled.div`
 		padding: ${variable.spacing[1]};
-		background: ${variable.color.gray[400]};
+		background: ${variable.color.gray![400]};
 		margin: ${variable.spacing[2]} ${variable.spacing[2]} 0 0;
 		padding: ${variable.spacing[1]};
 	`;

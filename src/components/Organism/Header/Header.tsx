@@ -2,13 +2,12 @@
 
 // react library
 import React, { useState } from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
 
 // styles
 import variable from "../../../style/variable";
 import { title } from "../../../style/styles";
+import { HeaderStyled, headerTitle } from "./HeaderStyled";
 
 // props
 import HeaderProps from "./HeaderProps";
@@ -16,34 +15,31 @@ import HeaderProps from "./HeaderProps";
 // components
 import Button from "../../Atom/Button/Button";
 import Modal from "../Modal/Modal";
-
 import TextField from "../../Atom/TextField/TextField";
+
+// utils
+import ls from "../../../utils/LocalStorage";
 
 const Header: React.FC<HeaderProps> = () => {
 	const [isCreateNewCollectionModal, setIsCreateNewCollectionModal] =
 		useState<boolean>(false);
 
 	const [collectionTitle, setCollectionTitle] = useState<string>("");
-
-	const Header = styled.div`
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: ${variable.spacing[5]} ${variable.spacing[10]};
-		box-shadow: 1px 4px 33px -11px rgba(0, 0, 0, 0.34);
-		-webkit-box-shadow: 1px 4px 33px -11px rgba(0, 0, 0, 0.34);
-		-moz-box-shadow: 1px 4px 33px -11px rgba(0, 0, 0, 0.34);
-	`;
-
-	const headerTitle = css`
-		font-size: ${variable.font.size["2xl"]};
-		font-weight: ${variable.font.weight.bold};
-		color: ${variable.color.gray[800]};
-		text-decoration: none;
-	`;
+	const [collectionDescription, setCollectionDescription] =
+		useState<string>("");
 
 	const toogleCreateNewCollectionModal = () => {
 		setIsCreateNewCollectionModal(!isCreateNewCollectionModal);
+	};
+
+	const createNewCollection = () => {
+		ls.createNewCollection(collectionTitle, collectionDescription);
+		// console.log(collectionTitle, collectionDescription);
+		alert("Collection created successfully");
+
+		setIsCreateNewCollectionModal(false);
+		setCollectionTitle("");
+		setCollectionDescription("");
 	};
 
 	return (
@@ -66,13 +62,25 @@ const Header: React.FC<HeaderProps> = () => {
 								value={collectionTitle}
 								handleInputChange={e => setCollectionTitle(e.target.value)}
 							/>
-							<Button.Basic size='sm'>Create</Button.Basic>
+
+							<TextField
+								label='Description'
+								name='description'
+								placeholder='Description'
+								value={collectionDescription}
+								handleInputChange={e =>
+									setCollectionDescription(e.target.value)
+								}
+							/>
+							<Button.Basic size='sm' onClick={createNewCollection}>
+								Create
+							</Button.Basic>
 						</Modal.Body>
 					</Modal.Container>
 				</Modal.Base>
 			)}
 
-			<Header>
+			<HeaderStyled>
 				<Link to='/' css={headerTitle}>
 					Anime App
 				</Link>
@@ -93,7 +101,7 @@ const Header: React.FC<HeaderProps> = () => {
 						<Button.Basic>View my collection</Button.Basic>
 					</Link>
 				</div>
-			</Header>
+			</HeaderStyled>
 		</>
 	);
 };

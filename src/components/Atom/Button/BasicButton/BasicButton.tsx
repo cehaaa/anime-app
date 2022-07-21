@@ -28,7 +28,7 @@ const BasicButton: React.FC<ButtonProps> = ({
 
 	const BasicButton = styled.button`
 		border: none;
-		background: ${variable.color.green[600]};
+		background: ${variable.color.green![600]};
 		color: white;
 		padding: ${buttonSizeClass()};
 		font-size: ${variable.font.size.sm};
@@ -39,7 +39,7 @@ const BasicButton: React.FC<ButtonProps> = ({
 		font-size: ${variable.font.size.base};
 
 		&:hover {
-			background: ${variable.color.green[700]};
+			background: ${variable.color.green![700]};
 		}
 	`;
 

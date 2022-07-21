@@ -6,7 +6,7 @@ export const InputGroup = styled.div`
 `;
 
 export const Label = styled.label`
-	font-size: ${variable.font.size.md};
+	font-size: ${variable.font.size.base};
 	font-weight: ${variable.font.weight.semibold};
 `;
 
@@ -16,7 +16,7 @@ export const RequiredStar = styled.span`
 
 export const TextFieldStyled = styled.input`
 	border: none;
-	background: ${variable.color.gray[200]};
+	background: ${variable.color.gray![200]};
 	border-radius: ${variable.radius.rounded};
 	width: 100%;
 	padding: ${variable.spacing[3]};
@@ -27,11 +27,11 @@ export const TextFieldStyled = styled.input`
 
 	&:hover {
 		outline-offset: 2px;
-		outline: solid 2px ${variable.color.green[500]};
+		outline: solid 2px ${variable.color.green![500]};
 	}
 
 	&:focus {
 		outline-offset: 2px;
-		outline: solid 2px ${variable.color.green[500]};
+		outline: solid 2px ${variable.color.green![500]};
 	}
 `;

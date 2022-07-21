@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({ children }) => {
 		justify-content: center;
 		align-items: center;
 		padding: ${variable.spacing[5]} ${variable.spacing[10]};
-		border-top: 1px solid ${variable.color.gray[200]};
+		border-top: 1px solid ${variable.color.gray![200]};
 		font-weight: ${variable.font.weight.semibold};
 	`;
 
