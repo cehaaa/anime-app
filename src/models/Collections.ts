@@ -1,9 +1,8 @@
 import Anime from "./Anime";
-
-export interface Collection {
-	collection: Array<Anime>;
-}
-
 export interface Collections {
-	collections: Array<Array<Anime>>;
+	name: string;
+	description: string;
+	animes: Anime[];
 }
+
+export default Collections;
