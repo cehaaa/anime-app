@@ -13,6 +13,7 @@ import Footer from "./Organism/Footer/Footer";
 // pages
 import Home from "../pages/Home/Home";
 import Collection from "../pages/Collection/Collection";
+import Folder from "../pages/Folder/Folder";
 
 // context
 import AppContext from "../context/AppContext";
@@ -22,7 +23,7 @@ import Anime from "../models/Anime";
 
 // styles
 import variable from "./../style/variable";
-import { Collections } from "../models/Collections";
+// import { Collections } from "../models/Library";
 
 const App = () => {
 	const client = new ApolloClient({
@@ -31,9 +32,9 @@ const App = () => {
 	});
 
 	const [animes, setAnimes] = useState<Anime[]>([]);
-	const [collections, setCollections] = useState<Collections>({
-		collections: [],
-	});
+	// const [collections, setCollections] = useState<Collections>({
+	// 	collections: [],
+	// });
 
 	const [isCreateNewCollectionModal, setIsCreateNewCollectionModal] =
 		useState<boolean>(false);
@@ -42,8 +43,8 @@ const App = () => {
 		animes: animes,
 		setAnimes: setAnimes,
 
-		collections: collections,
-		setCollections: setCollections,
+		// collections: collections,
+		// setCollections: setCollections,
 
 		isCreateNewCollectionModal: isCreateNewCollectionModal,
 		setIsCreateNewCollectionModal: setIsCreateNewCollectionModal,
@@ -52,7 +53,7 @@ const App = () => {
 	return (
 		<div
 			css={{
-				background: variable.color.gray[200],
+				background: variable.color.gray![200],
 			}}
 			id='app'>
 			<ApolloProvider client={client}>
@@ -62,6 +63,9 @@ const App = () => {
 					<Routes>
 						<Route path='/' element={<Home />}></Route>
 						<Route path='/collections' element={<Collection />}></Route>
+						<Route
+							path='/collections/:collectionName'
+							element={<Folder />}></Route>
 					</Routes>
 					<Footer />
 				</Container>
