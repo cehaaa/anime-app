@@ -8,12 +8,19 @@ import ButtonProps from "../ButtonProps";
 // styles
 import variable from "../../../../style/variable";
 
-const CloseButton: React.FC<ButtonProps> = ({ children, onClick }) => {
+// button utils
+import { buttonSize } from "../ButtonUtils";
+
+const CloseButton: React.FC<ButtonProps> = ({
+	children,
+	onClick,
+	size = "base",
+}) => {
 	const CloseButton = styled.button`
 		border: none;
 		background: ${variable.color.gray![200]};
 		color: ${variable.color.gray![500]};
-		padding: ${variable.spacing[2]} ${variable.spacing[3]};
+		padding: ${buttonSize(size)};
 		font-size: ${variable.font.size.sm};
 		transition-duration: 200ms;
 		cursor: pointer;

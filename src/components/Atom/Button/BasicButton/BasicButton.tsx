@@ -8,29 +8,19 @@ import ButtonProps from "../ButtonProps";
 // styles
 import variable from "../../../../style/variable";
 
+// button utils
+import { buttonSize } from "../ButtonUtils";
+
 const BasicButton: React.FC<ButtonProps> = ({
 	children,
 	onClick,
 	size = "base",
 }) => {
-	const buttonSizeClass = () => {
-		switch (size) {
-			case "sm":
-				return `${variable.spacing[3]} ${variable.spacing[4]}`;
-			case "base":
-				return `${variable.spacing[4]} ${variable.spacing[5]}`;
-			// case "lg":
-			// 	return "font-size: " + variable.font.size.lg;
-			default:
-				return `${variable.spacing[4]} ${variable.spacing[5]}`;
-		}
-	};
-
 	const BasicButton = styled.button`
 		border: none;
 		background: ${variable.color.green![600]};
 		color: white;
-		padding: ${buttonSizeClass()};
+		padding: ${buttonSize(size)};
 		font-size: ${variable.font.size.sm};
 		font-weight: ${variable.font.weight.medium};
 		transition-duration: 200ms;
