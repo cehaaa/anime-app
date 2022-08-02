@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 // react library
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // props
 import CardBaseProps from "./CardBaseProps";
@@ -28,13 +28,45 @@ import { title } from "../../../../style/styles";
 // components
 import Modal from "../../Modal/Modal";
 import Button from "../../../Atom/Button/Button";
+import List from "../../List/List";
+
+// utils
+import ls from "../../../../utils/LocalStorage";
+
+// types
+import Collections from "../../../../models/Collections";
 
 export const CardBase: React.FC<CardBaseProps> = ({ children, anime }) => {
 	const [isAddToCollectionModalOpen, setIsAddToCollectionModalOpen] =
 		useState<boolean>(false);
 
+	const [collections, setCollections] = useState<Collections[]>([]);
+
 	const toogleAddToCollectionModal = () => {
 		setIsAddToCollectionModalOpen(!isAddToCollectionModalOpen);
+	};
+
+	useEffect(() => {
+		setCollections(ls.getCollections());
+	}, []);
+
+	const addToCollection = (collectionName: string) => {
+		const collection = collections.find(
+			collection => collection.name === collectionName
+		);
+
+		if (collection) {
+			collection.animes.push(anime);
+
+			collections.forEach((collection, index) => {
+				if (collection.name === collectionName) {
+					collections[index] = collection;
+				}
+			});
+		}
+
+		ls.setCollection(collections);
+		setIsAddToCollectionModalOpen(false);
 	};
 
 	return (
@@ -44,12 +76,27 @@ export const CardBase: React.FC<CardBaseProps> = ({ children, anime }) => {
 					<Modal.Container>
 						<Modal.Header>
 							<div css={title}>Create a new collection</div>
-							<Button.Close onClick={toogleAddToCollectionModal}>
+							<Button.Close size='sm' onClick={toogleAddToCollectionModal}>
 								Close
 							</Button.Close>
 						</Modal.Header>
 						<Modal.Body>
-							<div>List</div>
+							<List.Container>
+								{collections.map((collection, index) => {
+									return (
+										<List.Item key={index}>
+											<div> {collection.name} </div>
+											<div>
+												<Button.Basic
+													size='sm'
+													onClick={() => addToCollection(collection.name)}>
+													Add to collection
+												</Button.Basic>
+											</div>
+										</List.Item>
+									);
+								})}
+							</List.Container>
 						</Modal.Body>
 					</Modal.Container>
 				</Modal.Base>
