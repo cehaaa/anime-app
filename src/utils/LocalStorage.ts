@@ -29,8 +29,11 @@ export class LocalStorage {
 
 	save(): void {
 		localStorage.setItem(this.storageName, JSON.stringify(this.collections));
+	}
 
-		// if(JSON.parse(localStorage.getItem(this.storageName)))
+	setCollection(collections: Collections[]): void {
+		this.collections = collections;
+		this.save();
 	}
 }
 
