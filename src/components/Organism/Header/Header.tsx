@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = () => {
 					<Modal.Container>
 						<Modal.Header>
 							<div css={title}>Create a new collection</div>
-							<Button.Close onClick={toogleCreateNewCollectionModal}>
+							<Button.Close size='sm' onClick={toogleCreateNewCollectionModal}>
 								Close
 							</Button.Close>
 						</Modal.Header>
