@@ -9,10 +9,10 @@ export const AppContext = React.createContext<AppContextInterface>({
 	setAnimes: () => {},
 
 	// collections
-	collections: {
-		collections: [],
-	},
-	setCollections: () => {},
+	// collections: {
+	// 	collections: [],
+	// },
+	// setCollections: () => {},
 
 	// modal
 	isCreateNewCollectionModal: false,
