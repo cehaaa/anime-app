@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
 // react library
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
@@ -15,40 +14,14 @@ import Home from "../pages/Home/Home";
 import Collection from "../pages/Collection/Collection";
 import Folder from "../pages/Folder/Folder";
 
-// context
-import AppContext from "../context/AppContext";
-
-// interface
-import Anime from "../models/Anime";
-
 // styles
 import variable from "./../style/variable";
-// import { Collections } from "../models/Library";
 
 const App = () => {
 	const client = new ApolloClient({
 		cache: new InMemoryCache(),
 		uri: "https://graphql.anilist.co",
 	});
-
-	const [animes, setAnimes] = useState<Anime[]>([]);
-	// const [collections, setCollections] = useState<Collections>({
-	// 	collections: [],
-	// });
-
-	const [isCreateNewCollectionModal, setIsCreateNewCollectionModal] =
-		useState<boolean>(false);
-
-	const appContextValue = {
-		animes: animes,
-		setAnimes: setAnimes,
-
-		// collections: collections,
-		// setCollections: setCollections,
-
-		isCreateNewCollectionModal: isCreateNewCollectionModal,
-		setIsCreateNewCollectionModal: setIsCreateNewCollectionModal,
-	};
 
 	return (
 		<div
@@ -57,7 +30,6 @@ const App = () => {
 			}}
 			id='app'>
 			<ApolloProvider client={client}>
-				{/* <AppContext.Provider value={appContextValue}> */}
 				<Container>
 					<Header />
 					<Routes>
@@ -69,7 +41,6 @@ const App = () => {
 					</Routes>
 					<Footer />
 				</Container>
-				{/* </AppContext.Provider> */}
 			</ApolloProvider>
 		</div>
 	);
