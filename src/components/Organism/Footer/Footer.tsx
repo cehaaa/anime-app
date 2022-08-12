@@ -3,16 +3,12 @@
 // react library
 import React from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 
 // styles
 import variable from "../../../style/variable";
 
 // props
 import FooterProps from "./FooterProps";
-
-// components
-import Button from "../../Atom/Button/Button";
 
 const Footer: React.FC<FooterProps> = ({ children }) => {
 	const Footer = styled.div`
